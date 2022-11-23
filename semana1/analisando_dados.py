@@ -10,7 +10,13 @@ print(df.count())
 # 89083
 # df.show()
 
+#Bucando apenas as colunas de anuncio
 anuncio = df.select('anuncio.*')
-print (anuncio.show())
+
+anuncio.filter(anuncio.tipo_uso == 'Residencial').show()
+# & anuncio.tipo_unidade == 'Apartamento' & anuncio.tipo_anuncio == 'Usado').show()
+
+
+
 
 
