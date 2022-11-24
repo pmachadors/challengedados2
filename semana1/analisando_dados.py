@@ -1,4 +1,5 @@
 from pyspark.sql import SparkSession
+from pyspark.sql import functions as func
 
 spark = SparkSession.builder.master("local[*]") \
                     .appName('SparkAnalisandoDados') \
@@ -15,9 +16,9 @@ anuncio = df.select('anuncio.*')
 
 filtro = anuncio\
 .select('*')\
-.where('tipo_uso == "Residencial"')\
-.where('tipo_unidade == "Apartamento"')\
-.where('tipo_anuncio == "Usado"').show()
+.where((func.col('tipo_uso') == 'Residencial')\
+& (func.col('tipo_unidade') == 'Apartamento')\
+& (func.col('tipo_anuncio') == 'Usado')).show()
 
 
 
