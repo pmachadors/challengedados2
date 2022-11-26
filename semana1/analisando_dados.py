@@ -11,7 +11,6 @@ df = spark.read.json("dataset_bruto.json")
 
 # print(df.count())
 # 89083
-# df.show()
 
 anuncio = df.select('anuncio.*')
 
@@ -40,10 +39,7 @@ valores = filtro_.withColumn('condominio',filtro_['valores']['condominio'][0].ca
 valores = valores.withColumn('iptu',valores['valores']['iptu'][0].cast(DoubleType()))
 valores = valores.withColumn('tipo',valores['valores']['tipo'][0])
 valores = valores.withColumn('valor',valores['valores']['valor'][0].cast(DoubleType()))
-# valores = filtro_.withColumn('condominio',func.explode(func.col('valores.condominio')))
-# valores = valores.withColumn('iptu',func.explode(func.col('valores.iptu')))
-# valores = valores.withColumn('tipo',func.explode(func.col('valores.tipo')))
-# valores = valores.withColumn('valor',func.explode(func.col('valores.valor')))
+
 valores = valores.drop('valores')
 
 # Filtrando apenas o tipo Venda
