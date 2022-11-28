@@ -52,3 +52,8 @@ valores_vendas.write.format('parquet').save('valores_vendas_parquet')
 valores_vendas_csv = valores_vendas.withColumn("caracteristicas",func.concat_ws(",",func.col("caracteristicas")))
 valores_vendas_csv.write.format('csv').save('valores_vendas_csv')
 
+
+valores_vendas_csv.write.format('csv').save('valores_vendas_csv')
+
+valores_vendas_csv.write.format('csv').save('valores_vendas_csv')
+
