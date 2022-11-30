@@ -18,7 +18,7 @@ df_parquet_ = df_parquet.withColumn('andar',df_parquet.andar.cast(IntegerType())
                         .withColumn('area_util',df_parquet.area_util.cast(DoubleType()))\
                         .withColumn('condominio',df_parquet.condominio.cast(DoubleType()))\
                         .withColumn('iptu',df_parquet.iptu.cast(DoubleType()))\
-                        .withColumn('valor',df_parquet.valor.cast(DoubleType()))\
+                        .withColumn('valor',df_parquet.valor.cast(DoubleType()))
                         
 # Tratamento da coluna caracteristicas
 df_caracteristicas = df_parquet_.withColumn('caracteristicas',f.when(f.size(f.col('caracteristicas')) == 0, f.lit(None)).otherwise(f.col('caracteristicas')))
